@@ -1,7 +1,5 @@
-/*div {
-  border: 1px solid green;
-}*/
 
+/*general-content*/
 html {
   font-size: 18px;
   font-family: Helvetica, sans-serif;
@@ -10,20 +8,30 @@ html {
 .site-container {
   width: 960px;
   margin: 0 auto;
+  max-width: 100%;
+}
+
+.logo, .new-arrival, .img-txt, .info-title, .footer, .nav li {
+  color: white;
+}
+
+.logo, .new-arrival, .img-txt, .info-title, .footer {
+  background-color: black;
 }
 
 /*logo*/
 .logo {
-  width: 98.1%;
-  background-color: black;
-  display: flex;
-  color: white;
+  width: auto;
   padding: 0.66rem 0.5rem;
 }
 
 #logo-img {
   height: 1.5rem;
   margin-right: 1rem;
+}
+
+.logo h2 {
+  display: inline;
 }
 
 /*main-banner*/
@@ -36,11 +44,9 @@ html {
 }
 
 .new-arrival {
-  background-color: black;
   width: 20rem;
   padding: 2rem 3rem;
   font-weight: bold;
-  color: white;
   position: relative;
   top: 9em;
 }
@@ -57,13 +63,13 @@ h1 {
   padding: 0.75rem 0rem;
 }
 
-.nav li {
-  color: white;
-}
-
 .site-container .nav {
   display: flex;
   justify-content: space-between;
+}
+
+.not-desktop {
+  display: none;
 }
 
 /*product-grid*/
@@ -74,29 +80,37 @@ h1 {
   margin-top: 3rem;
 }
 
-.product {
-  width: 30%;
+/*.product {
   text-align: center;
+  position: relative;
+}*/
+
+.product {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 30%;
   border: 4px solid black;
   height: 9rem;
-  position: relative;
   padding: 2rem 0;
+  overflow: hidden;
 }
 
 .product img {
   max-width: 8rem;
 	margin: 0 auto;
-  border: 1px solid green;
+  display: block;
 }
 
 .img-txt {
-  color: white;
-  background-color: black;
   padding: 0.5rem 0;
+  width: 100%;
+  text-align: center;
+}
+
+/*.img-txt {
   position: absolute;
   bottom: 0;
-  width: 100%;
-
 }
 
 /*location and hours*/
@@ -107,18 +121,74 @@ h1 {
 }
 
 .info-title {
-  width: 89.5%;
-  background-color: black;
-  color: white;
   padding: 2rem 1rem;
+  width: 89%;
 }
 
 /*footer*/
 .footer {
-  background-color: black;
-  color: white;
   text-align: left;
   padding: 5rem 0rem;
   display: flex;
   align-items: center;
+}
+
+/*media-queries*/
+
+@media only screen and (max-width: 1024px) {
+  .product {
+    width: 47%;
+  }
+
+  #glasses {
+    display: none;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  .not-desktop {
+    display: flex;
+    justify-content: center;
+  }
+
+  .info {
+    width: 35%;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .new-arrival h2 {
+    font-size: 0.77rem;
+  }
+
+  .new-arrival h1 {
+    font-size: 1rem;
+  }
+
+  .logo h2 {
+    display: none;
+  }
+
+  #watch {
+    display: none;
+  }
+
+  .product-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-banner {
+    height: 15rem;
+  }
+
+  .info {
+    width: 90%;
+  }
+
+  .footer {
+    text-align: center;
+  }
 }
